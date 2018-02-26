@@ -30,10 +30,12 @@ Requirements
 Install
 -------
 
-* Clone the git repo
-* Rename `data/keys.example.yml` to `data/keys.yml`
-* Put your Twitter keys and access tokens in the new `data/keys.yml` file
+* Clone the git repo: `git clone https://github.com/spejamchr/haiku_ebooks.git`
 * Run `bundle install`
+* Rename `data/keys.example.yml` to `data/keys.yml` and put your Twitter keys
+  and access tokens in there
+* Put some `.txt` files in the `data/text/` directory. Your Markov Chain will be
+  built from them.
 
 Author
 ------
