@@ -3,6 +3,8 @@ haiku_ebooks
 
 Tweet random haikus
 
+[See the result on Twitter](https://spejamchr.github.io/haiku_ebooks/)
+
 I like Markov Chains, and I like haikus, so this is my attempt at creating a
 Twitter bot that tweets Markov-Chain-generated haikus. It's not meant to be
 blazing fast, but it should count syllables very accurately.
