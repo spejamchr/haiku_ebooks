@@ -1,0 +1,4 @@
+data/keys.yml
+data/text/*.txt
+data/db/*.txt
+data/db/persistent_markov_chain_file

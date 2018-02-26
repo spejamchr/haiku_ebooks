@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'twitter'
+
+root = File.expand_path('../..', __FILE__)
+require File.join(root, %w[lib haiku_ebooks])
+
+keys = YAML::load(IO.read(HaikuEbooks.data_path('keys.yml')))
+
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key        = keys['consumer_key']
+  config.consumer_secret     = keys['consumer_secret']
+  config.access_token        = keys['access_token']
+  config.access_token_secret = keys['access_token_secret']
+end
+
+haiku = HaikuEbooks::Writer.write
+client.update(haiku)
+
+puts "Tweeted haiku:\n\n"
+puts haiku
