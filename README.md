@@ -3,7 +3,7 @@ haiku_ebooks
 
 Tweet random haikus
 
-[See the result on Twitter](https://spejamchr.github.io/haiku_ebooks/)
+[See the result on Twitter](https://twitter.com/EbooksHaiku)
 
 I like Markov Chains, and I like haikus, so this is my attempt at creating a
 Twitter bot that tweets Markov-Chain-generated haikus. It's not meant to be
