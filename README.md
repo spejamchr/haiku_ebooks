@@ -26,8 +26,10 @@ persistent Markov Chain. Subsequent runs should only take ~10 seconds.
 Requirements
 ------------
 
-* `msgpack` for storing the Markov Chains
-* `twitter` for tweeting
+* `ruby` (I'm using `ruby 2.4.2`)
+* [`bundler`](http://bundler.io/) for installing:
+  * [`msgpack`](https://github.com/msgpack/msgpack-ruby/) for storing the Markov Chains
+  * [`twitter`](https://github.com/sferik/twitter) for tweeting
 
 Install
 -------
