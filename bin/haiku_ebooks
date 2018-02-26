@@ -1,22 +1,40 @@
 #!/usr/bin/env ruby
 
-require 'yaml'
-require 'twitter'
+begin
+  STDOUT.puts "Running ruby haiku_ebooks script"
 
-root = File.expand_path('../..', __FILE__)
-require File.join(root, %w[lib haiku_ebooks])
+  require 'rubygems'
+  require 'yaml'
+  require 'twitter'
 
-keys = YAML::load(IO.read(HaikuEbooks.data_path('keys.yml')))
+  STDOUT.puts "Loaded yaml and twitter"
 
-client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = keys['consumer_key']
-  config.consumer_secret     = keys['consumer_secret']
-  config.access_token        = keys['access_token']
-  config.access_token_secret = keys['access_token_secret']
+  root = File.expand_path('../..', __FILE__)
+  require File.join(root, %w[lib haiku_ebooks])
+
+  STDOUT.puts "Loaded application files"
+
+  keys = YAML::load(IO.read(HaikuEbooks.data_path('keys.yml')))
+
+  STDOUT.puts "Loaded config keys"
+
+  client = Twitter::REST::Client.new do |config|
+    config.consumer_key        = keys['consumer_key']
+    config.consumer_secret     = keys['consumer_secret']
+    config.access_token        = keys['access_token']
+    config.access_token_secret = keys['access_token_secret']
+  end
+
+  STDOUT.puts "Configureed Client. Will write haiku now"
+
+  haiku = HaikuEbooks::Writer.write
+
+  STDOUT.puts "Haiku written. Will tweet it."
+
+  client.update(haiku)
+
+  STDOUT.puts "Tweeted haiku:\n\n"
+  STDOUT.puts haiku
+rescue Exception => e
+  STDOUT.puts "There was an error: #{e}"
 end
-
-haiku = HaikuEbooks::Writer.write
-client.update(haiku)
-
-puts "Tweeted haiku:\n\n"
-puts haiku
