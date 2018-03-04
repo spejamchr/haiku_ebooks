@@ -48,3 +48,8 @@ Author
 ------
 
 Original author: Spencer Christiansen
+
+License
+-------
+
+haiku_ebooks is released under the [MIT License](https://opensource.org/licenses/MIT).
