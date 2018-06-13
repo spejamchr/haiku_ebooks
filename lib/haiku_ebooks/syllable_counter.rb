@@ -54,7 +54,7 @@ class HaikuEbooks::SyllableCounter
   end
 
   def syllables(string)
-    words = string.upcase.gsub(/[^A-Z']/, ' ').split(' ')
+    words = string.upcase.gsub("'", '').gsub(/[^A-Z]/, ' ').split(' ')
 
     # `words` can be empty when `string` has no letters`. This happens with
     # dates, for example. Let's disallow such "words" for haikus by giving them
